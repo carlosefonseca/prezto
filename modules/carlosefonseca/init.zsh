@@ -1,5 +1,3 @@
-test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
-
 # https://github.com/sharkdp/bat
 [[ -f /usr/local/bin/bat ]] && alias cat=bat
 [[ -f /usr/local/bin/dua ]] && alias du=dua
@@ -44,22 +42,20 @@ function o {
   fi
 }
 
-
-export GEM_HOME=$HOME/.gems
-path+=("$GEM_HOME/bin")
-
-export EDITOR="subl"
-export VISUAL="subl"
-
 alias timestamp='date +"%s"'
-alias sb='subl ~/.zprezto && subl -w ~/.zpreztorc && source ~/.zpreztorc'
-alias rb='source ~/.zpreztorc'
+alias sb='subl ~/.zprezto && subl ~/.zpreztorc && sbt && subl ~/.zprezto/modules/carlosefonseca/init.zsh && rb'
+alias sbc='subl ~/.zprezto/modules/carlosefonseca/init.zsh'
+alias sbt='subl ~/.zprezto/modules/talkdesk/init.zsh'
+alias rb='exec zsh'
 alias s="subl ."
 
 function pry_r {
   pry -e "require_relative \"$1\""
 }
 
+export GEM_HOME=$HOME/.gems
+
+export PATH=$PATH:$GEM_HOME/bin
 
 
 # check for system java before doing this.

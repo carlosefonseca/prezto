@@ -2,7 +2,7 @@
 
 # Can be used as pre-commit or standalone
 
-SWIFTLINT_CONFIG=$HOME/Code/.swiftlint.yml
+SWIFTLINT_CONFIG=$HOME/Code/agent-mobile-ios/Agent/.swiftlint.yml
 
 #Path to swiftlint
 SWIFT_LINT=/usr/local/bin/swiftlint
@@ -42,6 +42,7 @@ if [[ -e "${SWIFT_LINT}" ]]; then
 
 ##### Make the count avilable as global variable #####
     export SCRIPT_INPUT_FILE_COUNT=$count
+    # echo SCRIPT_INPUT_FILE_COUNT=$SCRIPT_INPUT_FILE_COUNT
 
     # echo "${SCRIPT_INPUT_FILE_COUNT}"
     # env | grep SCRIPT_INPUT_FILE

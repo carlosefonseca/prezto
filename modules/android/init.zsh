@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+[ ! -d $HOME/Library/Android/sdk ] && return
+
 export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ANDROID_SDK=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/tools
 
 # Finds the latest installed version of aapt and runs it as if it was on the path.
 alias aapt=$ANDROID_HOME/build-tools/$(ls -1 $ANDROID_HOME/build-tools | tail -n 1)/aapt
@@ -185,3 +188,5 @@ function prepareLatestApk {
   open -R $new_file
   popd
 }
+
+alias adburl="adb shell am start -a android.intent.action.VIEW -d"
