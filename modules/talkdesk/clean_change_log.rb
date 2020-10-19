@@ -23,8 +23,8 @@ end
 
 txt = File.read(ARGV[0])
 
-ticketIds = txt.split("\n").sort.uniq.map { |l|
-  m = l.match(/^(MOB[OP])\D(\d+)\D.*/)
+ticketIds = txt.split("\n").uniq.map { |l|
+  m = l.match(/^\[?(iOS|MOB[OP])\D(\d+)\D.\]?.*/i)
   if m
     ["#{m[1]}-#{m[2]}", l]
   else

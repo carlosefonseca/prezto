@@ -1,3 +1,5 @@
+export VISUAL='code'
+
 # https://github.com/sharkdp/bat
 [[ -f /usr/local/bin/bat ]] && alias cat=bat
 [[ -f /usr/local/bin/dua ]] && alias du=dua
@@ -43,11 +45,12 @@ function o {
 }
 
 alias timestamp='date +"%s"'
-alias sb='subl ~/.zprezto && subl ~/.zpreztorc && sbt && subl ~/.zprezto/modules/carlosefonseca/init.zsh && rb'
-alias sbc='subl ~/.zprezto/modules/carlosefonseca/init.zsh'
-alias sbt='subl ~/.zprezto/modules/talkdesk/init.zsh'
+alias sb='e ~/.zprezto && e ~/.zpreztorc && sbt && e ~/.zprezto/modules/carlosefonseca/init.zsh && rb'
+alias sbc='e ~/.zprezto/modules/carlosefonseca/init.zsh'
+alias sbt='e ~/.zprezto/modules/talkdesk/init.zsh'
 alias rb='exec zsh'
-alias s="subl ."
+alias s="e ."
+alias f="fork ."
 
 function pry_r {
   pry -e "require_relative \"$1\""

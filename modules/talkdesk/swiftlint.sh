@@ -2,7 +2,7 @@
 
 # Can be used as pre-commit or standalone
 
-SWIFTLINT_CONFIG=$HOME/Code/agent-mobile-ios/Agent/.swiftlint.yml
+SWIFTLINT_CONFIG=$HOME/Developer/agent-mobile-ios/Agent/.swiftlint.yml
 
 #Path to swiftlint
 SWIFT_LINT=/usr/local/bin/swiftlint
