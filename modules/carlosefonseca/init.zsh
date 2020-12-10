@@ -56,9 +56,9 @@ function pry_r {
   pry -e "require_relative \"$1\""
 }
 
-export GEM_HOME=$HOME/.gems
+export GEM_HOME=$HOME/.gems/2.7.0
 
-export PATH=$PATH:$GEM_HOME/bin
+export PATH=/usr/local/opt/ruby/bin:$GEM_HOME/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH
 
 
 # check for system java before doing this.
