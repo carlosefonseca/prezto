@@ -1,3 +1,5 @@
+eval $(/opt/homebrew/bin/brew shellenv)
+
 #Delays the Homebrew auto update so it's mostly invisible.
 #Ensure https://github.com/DomT4/homebrew-autoupdate is active
 #Run once per computer: brew autoupdate --start 86400
