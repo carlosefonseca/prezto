@@ -1,3 +1,9 @@
+#Delays the Homebrew auto update so it's mostly invisible.
+#Ensure https://github.com/DomT4/homebrew-autoupdate is active
+#Run once per computer: brew autoupdate --start 86400
+export HOMEBREW_AUTO_UPDATE_SECS="86400"
+
+
 export VISUAL='code'
 
 # https://github.com/sharkdp/bat
@@ -56,9 +62,9 @@ function pry_r {
   pry -e "require_relative \"$1\""
 }
 
-export GEM_HOME=$HOME/.gems/2.7.0
+# export GEM_HOME=$HOME/.gems/3.0
 
-export PATH=/usr/local/opt/ruby/bin:$GEM_HOME/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH
+# export PATH=/usr/local/opt/ruby/bin:$GEM_HOME/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$PATH
 
 
 # check for system java before doing this.
