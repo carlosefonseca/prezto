@@ -1,4 +1,5 @@
-eval $(/opt/homebrew/bin/brew shellenv)
+# Do not store commands prefixed with a space
+setopt HIST_IGNORE_SPACE
 
 #Delays the Homebrew auto update so it's mostly invisible.
 #Ensure https://github.com/DomT4/homebrew-autoupdate is active
