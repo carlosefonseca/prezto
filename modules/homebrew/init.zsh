@@ -22,6 +22,8 @@ fi
 # variables as they are already handled in standard zsh configuration.
 if (( $+commands[brew] )); then
   eval "${(@M)${(f)"$(brew shellenv 2> /dev/null)"}:#export HOMEBREW*}"
+else
+  eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
 #
