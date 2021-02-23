@@ -81,3 +81,5 @@ function pry_r {
 # find-exec *.txt rm
 # cdls
 # http-serve
+
+path+=("${0:h}/bin")
