@@ -11,6 +11,11 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; t
 fi
 
 if [ -d /opt/homebrew/opt/chruby/share/chruby ]; then
+  # Apple Silicon
   source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
   source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+elif [ -d /usr/local/opt/chruby/share/chruby ]; then
+  # Intel
+  source /usr/local/opt/chruby/share/chruby/chruby.sh
+  source /usr/local/opt/chruby/share/chruby/auto.sh
 fi
