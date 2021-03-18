@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
-export GEM_HOME=/Users/carlos.fonseca/.gems
+#!/usr/bin/env zsh
 
 cd $1
 

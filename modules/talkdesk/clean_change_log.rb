@@ -104,7 +104,7 @@ end
 
 txt = File.read(ARGV[0])
 
-ticketIds = txt.gsub(/\[iOS\] /, "iOS").split("\n").uniq.map { |l|
+ticketIds = txt.gsub(/\[iOS\] /i, "").split("\n").uniq.map { |l|
   m = l.match(/^\[?(iOS|MOB|MOB[OP])\D(\d+)\D.\]?.*/i)
   if m
     ["#{m[1]}-#{m[2]}", l]
