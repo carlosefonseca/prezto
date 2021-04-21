@@ -6,7 +6,7 @@ setopt HIST_IGNORE_SPACE
 #Run once per computer: brew autoupdate --start 86400
 export HOMEBREW_AUTO_UPDATE_SECS="86400"
 
-
+export EDITOR='vim'
 export VISUAL='code'
 
 # https://github.com/sharkdp/bat
@@ -83,3 +83,7 @@ function pry_r {
 # http-serve
 
 path+=("${0:h}/bin")
+
+alias zap="brew uninstall --zap"
+
+eval $(/opt/homebrew/bin/brew shellenv)
