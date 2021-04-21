@@ -20,3 +20,5 @@ elif [ -d /usr/local/opt/chruby/share/chruby ]; then
   source /usr/local/opt/chruby/share/chruby/auto.sh
   RUBIES+=(/usr/local/opt/ruby*)
 fi
+
+export DOT="$DOT.zshenv "
