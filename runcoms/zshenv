@@ -18,4 +18,5 @@ elif [ -d /usr/local/opt/chruby/share/chruby ]; then
   # Intel
   source /usr/local/opt/chruby/share/chruby/chruby.sh
   source /usr/local/opt/chruby/share/chruby/auto.sh
+  RUBIES+=(/usr/local/opt/ruby*)
 fi
