@@ -87,3 +87,10 @@ path+=("${0:h}/bin")
 alias zap="brew uninstall --zap"
 
 eval $(/opt/homebrew/bin/brew shellenv)
+
+# Python for TTY
+if command -v pyenv 1>/dev/null 2>&1; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+fi
