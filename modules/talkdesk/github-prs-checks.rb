@@ -9,6 +9,8 @@ def approval_status1(p)
   if p["approvals"] >= 2
     if p["checks"] == "success"
       return :ready
+    elsif p["checks"] == "failure"
+      return :approved_error  
     else
       return :approved
     end
@@ -145,6 +147,8 @@ if ARGV[0] == "swiftbar"
       "Draft. #{ci}"
     when :ready
       "Ready to merge!"
+    when :approved_error
+      "Approved, but CI has failed!"
     when :approved
       "Approved! #{ci}"
     when :mine_needs_reviews_and_checks_failed
@@ -169,6 +173,8 @@ if ARGV[0] == "swiftbar"
         "puzzlepiece.fill"
       when :ready
         "checkmark.seal.fill"
+      when :approved_error
+        "xmark.seal.fill"
       when :approved
         "gearshape.2.fill"
       when :mine_needs_1_review
@@ -188,6 +194,8 @@ if ARGV[0] == "swiftbar"
         "puzzlepiece"
       when :ready
         "checkmark.seal"
+      when :approved_error
+        "xmark.seal"
       when :approved
         "gearshape"
       when :mine_needs_1_review
