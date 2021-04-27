@@ -1,4 +1,4 @@
-TALKDESK_HOME=$HOME/Developer
+export TALKDESK_HOME=$HOME/Developer
 
 alias td="cd $TALKDESK_HOME"
 alias a="cd $TALKDESK_HOME/agent-mobile-android && pwd"
@@ -11,59 +11,6 @@ apr() {
         read "?Working copy is dirty. Continue? "
     fi
     git reset --hard && gh pr checkout $1 && git reset --soft origin/dev
-}
-
-ipr() {
-    i
-
-    if [ -t 1 ]; then
-      BOLD="\e[1m"
-      CLEAR="\e[0m"
-    else
-      BOLD=""
-      CLEAR=""
-    fi
-
-    if [[ $(git status -s) != '' ]]; then
-        read "?Working copy is dirty. Continue? "
-    fi
-
-    pr_branch=$(gh pr list | grep "$1" | awk -F$'\t' '{print $3}')
-    
-    if [ -z $pr_branch ]; then
-      echo "Failed to get branch name!"
-      return
-    fi
-
-    for i in $(git branch --remote | egrep -o "feature.*|develop" | uniq); do
-        echo "Looking for branch in $i..."
-        gh pr list -B "$i" 2>/dev/null | grep "^$1\s"
-        if [ $? -eq 0 ]; then
-            branch="$i"
-            break
-        fi
-    done
-
-    if [ -z $branch ]; then
-        read "branch?PR not found. What's the base branch? "
-    else
-        echo "Found on branch $branch"
-    fi
-
-    parent_commit=$(git merge-base origin/$branch origin/$pr_branch)
-
-    echo "-> pr_branch $pr_branch"
-    echo "-> branch $branch"
-    echo "-> parent_commit $parent_commit"
-
-    echo "$BOLD$ git reset hard$CLEAR"
-    git reset --hard
-
-    echo "$BOLD$ git checkout --detach \"origin/$pr_branch\"$CLEAR"
-    git checkout --detach "origin/$pr_branch"
-
-    echo "$BOLD$ git reset --soft $(git merge-base origin/$branch HEAD)$CLEAR"
-    git reset --soft $(git merge-base origin/$branch HEAD)
 }
 
 itests () {
