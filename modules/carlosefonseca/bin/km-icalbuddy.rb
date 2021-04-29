@@ -26,14 +26,22 @@ def processEvent(lines)
   { start: start, delta: delta, name: name, location: zoom }
 end
 
+def no_events()
+  JSON.dump({ str: Time.now().strftime("%B %d"), name: nil, time: nil, loc: nil, color: "black" })
+end
 data = `icalBuddy -ic "carlos.fonseca@talkdesk.com" -n -eed -eep "attendees" -ea  -nc -b "•"  -ps "|;|\n|" -po "datetime,title,location,notes" eventsToday`
 
 if data.empty?
-  puts JSON.dump({ str: Time.now().strftime("%B %d"), name: nil, time: nil, loc: nil, color: "black" })
+puts no_events
   return
 end
 
-parsed = data[1..].split("•").map { |l| processEvent(l) }
+parsed = data[1..].split("•").map { |l| processEvent(l) }.reject { |e| (e[:delta] / 60) < -30 }
+
+if parsed.empty?
+  puts no_events
+  return
+end
 
 (closest_event, index) = parsed.each_with_index.min_by { |e, i| (e[:delta]).abs }
 
